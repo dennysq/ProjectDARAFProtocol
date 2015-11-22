@@ -18,11 +18,11 @@ public abstract class Mensaje {
 	protected Cuerpo cuerpo;
 	public static final String TIPO_MENSAJE_REQUEST = "RQ";
 	public static final String TIPO_MENSAJE_RESPONSE = "RS";
-	public static final String ID_MENSAJE_INFOCLIENTE = "CLIBUSSIMP";
-	public static final String ID_MENSAJE_CUENTACLIENTE = "CLIBUSCUEN";
-	public static final String ID_MENSAJE_AUTENTICACION = "AUTENTIC01";
-	public static final String ID_MENSAJE_DEPOSITO = "TRADEPOSIT";
-	public static final String ID_MENSAJE_RETIRO = "TRARETIROV";
+	public static final String ID_MENSAJE_CONSULTACLIENTE = "CONSULTACL";
+	public static final String ID_MENSAJE_CONSULTAFACTURA = "CONSULTAFA";
+	public static final String ID_MENSAJE_INGRESOCLIENTE = "INGRESOCLI";
+	public static final String ID_MENSAJE_INGRESOFACTURA = "INGRESOFAC";
+	public static final String ID_MENSAJE_AUTENTICACIONCLIENTE = "LOGINCLIEN";
 
 
 

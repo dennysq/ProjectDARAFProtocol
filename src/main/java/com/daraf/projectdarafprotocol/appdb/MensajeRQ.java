@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.daraf.projectdarafprotocol;
+package com.daraf.projectdarafprotocol.appdb;
 
+import com.daraf.projectdarafprotocol.Cabecera;
+import com.daraf.projectdarafprotocol.Mensaje;
 import com.daraf.projectdarafprotocol.appdb.consultas.ConsultaClienteRQ;
 import com.daraf.projectdarafprotocol.appdb.consultas.ConsultaFacturaRQ;
 import com.daraf.projectdarafprotocol.appdb.ingresos.IngresoClienteRQ;

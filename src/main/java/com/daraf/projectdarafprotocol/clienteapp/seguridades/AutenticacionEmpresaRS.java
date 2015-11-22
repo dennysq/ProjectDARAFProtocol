@@ -31,5 +31,14 @@ public class AutenticacionEmpresaRS implements Cuerpo  {
             this.resultado=input;
         }
     }
+
+    public void setResultado(String resultado) {
+        this.resultado = resultado;
+    }
+
+    public String getResultado() {
+        return resultado;
+    }
+    
     
 }

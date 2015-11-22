@@ -3,12 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.daraf.projectdarafprotocol;
+package com.daraf.projectdarafprotocol.socket;
 
 /**
  *
  * @author Dennys
  */
-public class DBRequest {
+public class SocketServer {
+    private String serverName;
+
+    public SocketServer() {
+    }
     
 }

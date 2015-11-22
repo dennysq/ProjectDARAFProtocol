@@ -57,9 +57,11 @@ public class AppClient {
             output.write("FIN");
             output.flush();
             socket.close();
-            MensajeRS mensajeRS = new MensajeRS();
-            if (mensajeRS.build(response)) {
-                return mensajeRS;
+            if (response != null) {
+                MensajeRS mensajeRS = new MensajeRS();
+                if (mensajeRS.build(response)) {
+                    return mensajeRS;
+                }
             }
         } catch (IOException ex) {
             Logger.getLogger(AppClient.class.getName()).log(Level.SEVERE, null, ex);

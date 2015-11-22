@@ -44,6 +44,16 @@ public class AutenticacionEmpresaRQ implements Cuerpo {
             }
         }
 
+    
     }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+    
 
 }

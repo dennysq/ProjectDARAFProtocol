@@ -11,7 +11,7 @@ import com.daraf.projectdarafprotocol.Cuerpo;
  *
  * @author Alejandra Ponce
  */
-public class AutenticacionClienteRQ implements Cuerpo {
+public class AutenticacionEmpresaRQ implements Cuerpo {
 
     @Override
     public String asTexto() {

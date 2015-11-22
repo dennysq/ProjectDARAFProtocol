@@ -11,7 +11,7 @@ import com.daraf.projectdarafprotocol.clienteapp.consultas.ConsultaClienteRQ;
 import com.daraf.projectdarafprotocol.clienteapp.consultas.ConsultaFacturaRQ;
 import com.daraf.projectdarafprotocol.clienteapp.ingresos.IngresoClienteRQ;
 import com.daraf.projectdarafprotocol.clienteapp.ingresos.IngresoFacturaRQ;
-import com.daraf.projectdarafprotocol.clienteapp.seguridades.AutenticacionClienteRQ;
+import com.daraf.projectdarafprotocol.clienteapp.seguridades.AutenticacionEmpresaRQ;
 
 /**
  *
@@ -37,7 +37,7 @@ public class MensajeRQ extends Mensaje {
 				if (this.cabecera.getTipoMensaje().equals(Mensaje.TIPO_MENSAJE_REQUEST)) {
 					switch (this.cabecera.getIdMensaje()) {
 					case ID_MENSAJE_AUTENTICACIONCLIENTE:
-						AutenticacionClienteRQ autenticacionClienteRQ = new AutenticacionClienteRQ();
+						AutenticacionEmpresaRQ autenticacionClienteRQ = new AutenticacionEmpresaRQ();
                                                 autenticacionClienteRQ.build(cuerpo);
 						this.cuerpo = autenticacionClienteRQ;
 						break;

@@ -11,7 +11,7 @@ import com.daraf.projectdarafprotocol.appdb.consultas.ConsultaClienteRS;
 import com.daraf.projectdarafprotocol.appdb.consultas.ConsultaFacturaRS;
 import com.daraf.projectdarafprotocol.appdb.ingresos.IngresoClienteRS;
 import com.daraf.projectdarafprotocol.appdb.ingresos.IngresoFacturaRS;
-import com.daraf.projectdarafprotocol.appdb.seguridades.AutenticacionClienteRS;
+import com.daraf.projectdarafprotocol.appdb.seguridades.AutenticacionEmpresaRS;
 
 /**
  *
@@ -37,7 +37,7 @@ public class MensajeRS extends Mensaje {
 				if (this.cabecera.getTipoMensaje().equals(Mensaje.TIPO_MENSAJE_RESPONSE)) {
 					switch (this.cabecera.getIdMensaje()) {
 					case ID_MENSAJE_AUTENTICACIONCLIENTE:
-						AutenticacionClienteRS autenticacionClienteRS = new AutenticacionClienteRS();
+						AutenticacionEmpresaRS autenticacionClienteRS = new AutenticacionEmpresaRS();
 						autenticacionClienteRS.build(cuerpo);
 						this.cuerpo = autenticacionClienteRS;
 						break;

@@ -6,16 +6,21 @@
 package com.daraf.projectdarafprotocol.appdb.seguridades;
 
 import com.daraf.projectdarafprotocol.Cuerpo;
+import com.daraf.projectdarafprotocol.model.Cliente;
 
 /**
  *
  * @author Alejandra Ponce
  */
-public class AutenticacionClienteRS implements Cuerpo  {
+public class AutenticacionEmpresaRQ implements Cuerpo {
 
+    private Cliente cliente;
+    
+    
+    
     @Override
     public String asTexto() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "";
     }
 
     @Override

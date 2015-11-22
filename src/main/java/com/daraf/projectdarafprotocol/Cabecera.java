@@ -151,8 +151,7 @@ public class Cabecera {
 	public boolean build(String input) {
 		if (validate(input)) {
 			try {
-				String values[] = MyStringUtils.splitByFixedLengths(input, new int[] { 2, 20, 17, 10, 4, 32 });
-
+				String values[] = MyStringUtil.splitByFixedLengths(input, new int[] { 2, 20, 17, 10, 4, 32 });
 				this.tipoMensaje = values[0];
 				this.originador = values[1];
 				this.fecha = values[2];

@@ -16,6 +16,9 @@ import java.util.Calendar;
  */
 public class Cabecera {
 
+    //Cuando se armen las cadenas asTexto y cuando se las desmonte se debe hacer en el mismo orden de los
+    //atributos de esta clase
+    
     private String tipoMensaje; //Longitud fija: 2      Ejemplo: RS o RQ
     private String originador; //Longitud fija:20       Ejemplo: appServer/ip
     private String fecha;//Longitud fija:17             Ejemplo: yyyyMMddHHmmssSSS 20151109213615012

@@ -13,7 +13,13 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class Empresa {
     
-    private String nombre; //Longitud: 20           Ejemplo:AlterBios
+    //Cuando se armen las cadenas asTexto y cuando se las desmonte se debe hacer en el mismo orden de los
+    //atributos de esta clase
+    
+    private String RUC;//Longitud : 13              Ejemplo: 0000235681000
+    private String nombre; //Longitud: 20           Ejemplo: AlterBios
+    private String telefono;//Longitud: 10          Ejemplo: 032816955
+    private String direccion;//Longitud: 50         Ejemplo: Latacunga, Calle 2 de Mayo y Tarqui 
     private String usuario; //Longitud fija: 10     Ejemplo:admin
     private String password; // Longitud fija: 10   Ejemplo:123456789
     

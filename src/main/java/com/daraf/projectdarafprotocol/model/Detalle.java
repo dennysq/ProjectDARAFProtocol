@@ -11,6 +11,9 @@ package com.daraf.projectdarafprotocol.model;
  */
 public class Detalle 
 {
+    //Cuando se armen las cadenas asTexto y cuando se las desmonte se debe hacer en el mismo orden de los
+    //atributos de esta clase
+    
     private String id; //Longitud fija: 10              Ejemplo: 0000000025  *Se completa con ceros a la ixquierda
     private String idFactura;//Longitud fija: 10        Ejemplo: 0000000788  *Se completa con ceros a la ixquierda  
     private String nombreProducto;//Longitud: 30        Ejemplo: Cuaderno Norma

@@ -11,6 +11,9 @@ package com.daraf.projectdarafprotocol.model;
  */
 public class Factura 
 {
+    //Cuando se armen las cadenas asTexto y cuando se las desmonte se debe hacer en el mismo orden de los
+    //atributos de esta clase
+    
     private String id;//Longitud fija: 10               Ejemplo: 0000000025  *Se completa con ceros a la ixquierda
     private String fecha;//Longitud fija:8              Ejemplo: yyyyMMdd 20151109
     private String total;//Longitud fija:12             Ejemplo: 1256.30 *Siempre debe tener 2 decimales

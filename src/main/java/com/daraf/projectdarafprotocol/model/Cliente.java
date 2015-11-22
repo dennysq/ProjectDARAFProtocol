@@ -4,13 +4,15 @@
  * and open the template in the editor.
  */
 package com.daraf.projectdarafprotocol.model;
-
 /**
  *
  * @author ShipO
  */
 public class Cliente 
 {
+    //Cuando se armen las cadenas asTexto y cuando se las desmonte se debe hacer en el mismo orden de los
+    //atributos de esta clase
+    
     private String id;   //Longitud fija: 10        Ejemplo: 0000000025  *Se completa con ceros a la ixquierda
     private String nombre;//Longitud: 30            Ejemplo: Daniela Valdez Ayora
     private String telefono;//Longitud: 10          Ejemplo: 032816955

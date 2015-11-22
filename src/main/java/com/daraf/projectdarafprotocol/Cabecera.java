@@ -6,7 +6,7 @@
 package com.daraf.projectdarafprotocol;
 
 import org.apache.commons.lang3.StringUtils;
-
+import com.daraf.projectdarafutil.MyStringUtil;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 

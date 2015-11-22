@@ -13,6 +13,8 @@ import com.daraf.projectdarafprotocol.Cuerpo;
  */
 public class IngresoClienteRQ implements Cuerpo {
 
+    
+    
     @Override
     public String asTexto() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

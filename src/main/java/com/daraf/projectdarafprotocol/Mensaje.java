@@ -25,7 +25,6 @@ public abstract class Mensaje {
 	public static final String ID_MENSAJE_AUTENTICACIONCLIENTE = "LOGINCLIEN";
 
 
-
 	public boolean validateBobyHash() {
 		return DigestUtils.md5Hex(this.cuerpo.asTexto()).equals(cabecera.getVerificacion());
 

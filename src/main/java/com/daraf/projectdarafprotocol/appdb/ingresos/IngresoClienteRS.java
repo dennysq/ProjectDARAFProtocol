@@ -5,10 +5,27 @@
  */
 package com.daraf.projectdarafprotocol.appdb.ingresos;
 
+import com.daraf.projectdarafprotocol.Cuerpo;
+
 /**
  *
  * @author Alejandra Ponce
  */
-public class IngresoClienteRS {
+public class IngresoClienteRS implements Cuerpo {
+
+    @Override
+    public String asTexto() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean validate(String input) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void build(String input) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

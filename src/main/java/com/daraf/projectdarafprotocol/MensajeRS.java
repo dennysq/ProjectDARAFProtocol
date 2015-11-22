@@ -5,11 +5,11 @@
  */
 package com.daraf.projectdarafprotocol;
 
-import com.daraf.projectdarafprotocol.consultas.ConsultaClienteRS;
-import com.daraf.projectdarafprotocol.consultas.ConsultaFacturaRS;
-import com.daraf.projectdarafprotocol.ingresos.IngresoClienteRS;
-import com.daraf.projectdarafprotocol.ingresos.IngresoFacturaRS;
-import com.daraf.projectdarafprotocol.seguridades.AutenticacionClienteRS;
+import com.daraf.projectdarafprotocol.appdb.consultas.ConsultaClienteRS;
+import com.daraf.projectdarafprotocol.appdb.consultas.ConsultaFacturaRS;
+import com.daraf.projectdarafprotocol.appdb.ingresos.IngresoClienteRS;
+import com.daraf.projectdarafprotocol.appdb.ingresos.IngresoFacturaRS;
+import com.daraf.projectdarafprotocol.appdb.seguridades.AutenticacionClienteRS;
 
 /**
  *

@@ -5,11 +5,11 @@
  */
 package com.daraf.projectdarafprotocol;
 
-import com.daraf.projectdarafprotocol.consultas.ConsultaClienteRQ;
-import com.daraf.projectdarafprotocol.consultas.ConsultaFacturaRQ;
-import com.daraf.projectdarafprotocol.ingresos.IngresoClienteRQ;
-import com.daraf.projectdarafprotocol.ingresos.IngresoFacturaRQ;
-import com.daraf.projectdarafprotocol.seguridades.AutenticacionClienteRQ;
+import com.daraf.projectdarafprotocol.appdb.consultas.ConsultaClienteRQ;
+import com.daraf.projectdarafprotocol.appdb.consultas.ConsultaFacturaRQ;
+import com.daraf.projectdarafprotocol.appdb.ingresos.IngresoClienteRQ;
+import com.daraf.projectdarafprotocol.appdb.ingresos.IngresoFacturaRQ;
+import com.daraf.projectdarafprotocol.appdb.seguridades.AutenticacionClienteRQ;
 
 /**
  *
@@ -36,7 +36,7 @@ public class MensajeRQ extends Mensaje {
 					switch (this.cabecera.getIdMensaje()) {
 					case ID_MENSAJE_AUTENTICACIONCLIENTE:
 						AutenticacionClienteRQ autenticacionClienteRQ = new AutenticacionClienteRQ();
-						autenticacionClienteRQ.build(cuerpo);
+                                                autenticacionClienteRQ.build(cuerpo);
 						this.cuerpo = autenticacionClienteRQ;
 						break;
 					case ID_MENSAJE_CONSULTACLIENTE:

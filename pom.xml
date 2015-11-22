@@ -30,12 +30,6 @@
             <version>${project.version}</version>
         </dependency>
         
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>ProjectDARAFDB</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        
     </dependencies>
         
 </project>

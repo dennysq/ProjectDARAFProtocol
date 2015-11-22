@@ -11,22 +11,25 @@ package com.daraf.projectdarafprotocol.model;
  */
 public class Cliente 
 {
-    private Integer id;   
-    private String nombre;
-    private String telefono;
-    private String direccion;
-    private String identificacion;
+    private String id;   //Longitud fija: 10        Ejemplo: 0000000025  *Se completa con ceros a la ixquierda
+    private String nombre;//Longitud: 30            Ejemplo: Daniela Valdez Ayora
+    private String telefono;//Longitud: 10          Ejemplo: 032816955
+    private String direccion;//Longitud: 50         Ejemplo: Latacunga, Calle 2 de Mayo y Tarqui 
+    private String identificacion;//Longitud: 15    Ejemplo: 0503337909
     
-    public Cliente(String a, String b, String c, String d, String e)
+    //Todos los string de longitud fija usan StringUtils.rightPad y se rellenan con espacios en blanco
+    //excepto si son IDs de la clase, esos usan StringUtils.leftPad y se rellenan con ceros
+    
+    public Cliente(String id, String nombre, String telefono, String direccion, String identificacion)
     {                 
-            id= Integer.parseInt(a);
-            nombre = b;
-            telefono = c;
-            direccion = d;
-            identificacion = e;                
+            this.id= id;
+            this.nombre = nombre;
+            this.telefono = telefono;
+            this.direccion = direccion;
+            this.identificacion = identificacion;                
     }
 
-    public Integer getId() {
+    public String getId() {
         return this.id;
     }
 
@@ -46,7 +49,7 @@ public class Cliente
         return this.identificacion;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

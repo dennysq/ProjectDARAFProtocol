@@ -11,12 +11,15 @@ package com.daraf.projectdarafprotocol.model;
  */
 public class Producto 
 {
-    private Integer id;
-    private String nombre;
-    private double precio;
-    private Integer cantidad;
+    private String id;//Longitud fija: 10           Ejemplo: 0000000025  *Se completa con ceros a la ixquierda
+    private String nombre;//Longitud: 30            Ejemplo: Cuaderno Norma
+    private String precio;//Longitud fija:12        Ejemplo: 1256.30 *Siempre debe tener 2 decimales
+    private String cantidad;//Longitud: 10          Ejemplo: 15
 
-    public Integer getId() {
+    //Todos los string de longitud fija usan StringUtils.rightPad y se rellenan con espacios en blanco
+    //excepto si son IDs de la clase, esos usan StringUtils.leftPad y se rellenan con ceros
+    
+    public String getId() {
         return id;
     }
 
@@ -24,15 +27,15 @@ public class Producto
         return nombre;
     }
 
-    public double getPrecio() {
+    public String getPrecio() {
         return precio;
     }
 
-    public Integer getCantidad() {
+    public String getCantidad() {
         return cantidad;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -40,11 +43,11 @@ public class Producto
         this.nombre = nombre;
     }
 
-    public void setPrecio(double precio) {
+    public void setPrecio(String precio) {
         this.precio = precio;
     }
 
-    public void setCantidad(Integer cantidad) {
+    public void setCantidad(String cantidad) {
         this.cantidad = cantidad;
     }
 }

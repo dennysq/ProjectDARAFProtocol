@@ -11,12 +11,15 @@ package com.daraf.projectdarafprotocol.model;
  */
 public class Factura 
 {
-    private Integer id;
-    private String fecha;
-    private double total;
-    private Integer idCliente;
+    private String id;//Longitud fija: 10               Ejemplo: 0000000025  *Se completa con ceros a la ixquierda
+    private String fecha;//Longitud fija:8              Ejemplo: yyyyMMdd 20151109
+    private String total;//Longitud fija:12             Ejemplo: 1256.30 *Siempre debe tener 2 decimales
+    private String idCliente;//Longitud fija: 10        Ejemplo: 0000000114  *Se completa con ceros a la ixquierda
 
-    public Integer getId() {
+    //Todos los string de longitud fija usan StringUtils.rightPad y se rellenan con espacios en blanco
+    //excepto si son IDs de la clase, esos usan StringUtils.leftPad y se rellenan con ceros
+    
+    public String getId() {
         return id;
     }
 
@@ -24,15 +27,15 @@ public class Factura
         return fecha;
     }
 
-    public double getTotal() {
+    public String getTotal() {
         return total;
     }
 
-    public Integer getIdCliente() {
+    public String getIdCliente() {
         return idCliente;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -40,11 +43,11 @@ public class Factura
         this.fecha = fecha;
     }
 
-    public void setTotal(double total) {
+    public void setTotal(String total) {
         this.total = total;
     }
 
-    public void setIdCliente(Integer idCliente) {
+    public void setIdCliente(String idCliente) {
         this.idCliente = idCliente;
     }
     

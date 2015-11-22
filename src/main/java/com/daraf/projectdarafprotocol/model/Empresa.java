@@ -13,11 +13,12 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class Empresa {
     
-    private String nombre; //Longitud: 20 Ejemplo:AlterBios
-    private String usuario; //Longitud fija: 10 Ejemplo:admin
-    private String password; // Longitud fija: 10 Ejemplo:123456789
+    private String nombre; //Longitud: 20           Ejemplo:AlterBios
+    private String usuario; //Longitud fija: 10     Ejemplo:admin
+    private String password; // Longitud fija: 10   Ejemplo:123456789
     
-    //Todos los string usan StringUtils.rightPad y se rellenan con espacios en blanco
+    //Todos los string de longitud fija usan StringUtils.rightPad y se rellenan con espacios en blanco
+    //excepto si son IDs de la clase, esos usan StringUtils.leftPad y se rellenan con ceros
     
     //Solo manejamos la autentifacion de una empresa
 

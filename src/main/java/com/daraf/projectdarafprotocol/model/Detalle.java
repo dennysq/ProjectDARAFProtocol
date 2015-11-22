@@ -11,15 +11,26 @@ package com.daraf.projectdarafprotocol.model;
  */
 public class Detalle 
 {
-    private Integer id;
-    private Integer idFactura;    
-    private String nombreProducto;
+    private String id; //Longitud fija: 10              Ejemplo: 0000000025  *Se completa con ceros a la ixquierda
+    private String idFactura;//Longitud fija: 10        Ejemplo: 0000000788  *Se completa con ceros a la ixquierda  
+    private String nombreProducto;//Longitud: 30        Ejemplo: Cuaderno Norma
+    private String cantidad;//Longitud: 10              Ejemplo: 15
 
-    public Integer getId() {
+    //Todos los string de longitud fija usan StringUtils.rightPad y se rellenan con espacios en blanco
+    //excepto si son IDs de la clase, esos usan StringUtils.leftPad y se rellenan con ceros
+    
+    public Detalle(String id, String idFactura, String nombreProducto, String cantidad) {
+        this.id = id;
+        this.idFactura = idFactura;
+        this.nombreProducto = nombreProducto;
+        this.cantidad = cantidad;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public Integer getIdFactura() {
+    public String getIdFactura() {
         return idFactura;
     }
 
@@ -27,16 +38,16 @@ public class Detalle
         return nombreProducto;
     }
 
-    public Integer getCantidad() {
+    public String getCantidad() {
         return cantidad;
     }
-    private Integer cantidad;
+    
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public void setIdFactura(Integer idFactura) {
+    public void setIdFactura(String idFactura) {
         this.idFactura = idFactura;
     }
 
@@ -44,7 +55,7 @@ public class Detalle
         this.nombreProducto = nombreProducto;
     }
 
-    public void setCantidad(Integer cantidad) {
+    public void setCantidad(String cantidad) {
         this.cantidad = cantidad;
     }
 }

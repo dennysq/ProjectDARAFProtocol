@@ -17,6 +17,8 @@ public class Empresa {
     private String usuario; //Longitud fija: 10 Ejemplo:admin
     private String password; // Longitud fija: 10 Ejemplo:123456789
     
+    //Todos los string usan StringUtils.rightPad y se rellenan con espacios en blanco
+    
     //Solo manejamos la autentifacion de una empresa
 
     public String getNombre() {

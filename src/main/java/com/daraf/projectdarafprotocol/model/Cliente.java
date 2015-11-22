@@ -11,7 +11,7 @@ package com.daraf.projectdarafprotocol.model;
  */
 public class Cliente 
 {
-    private Integer id;
+    private Integer id;   
     private String nombre;
     private String telefono;
     private String direccion;

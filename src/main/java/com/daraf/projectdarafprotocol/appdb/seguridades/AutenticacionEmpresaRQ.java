@@ -6,16 +6,13 @@
 package com.daraf.projectdarafprotocol.appdb.seguridades;
 
 import com.daraf.projectdarafprotocol.Cuerpo;
-import com.daraf.projectdarafprotocol.model.Cliente;
 
 /**
  *
  * @author Alejandra Ponce
  */
 public class AutenticacionEmpresaRQ implements Cuerpo {
-
-    private Cliente cliente;
-    
+   
     
     
     @Override

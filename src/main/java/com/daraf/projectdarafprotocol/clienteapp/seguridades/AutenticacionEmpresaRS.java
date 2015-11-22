@@ -13,19 +13,23 @@ import com.daraf.projectdarafprotocol.Cuerpo;
  */
 public class AutenticacionEmpresaRS implements Cuerpo  {
 
+    private String resultado; // Si 1: entra, Si 0: no entra
+    
     @Override
     public String asTexto() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.resultado;
     }
 
     @Override
     public boolean validate(String input) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return input.length() == 1;
     }
 
     @Override
     public void build(String input) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(validate(input)){
+            this.resultado=input;
+        }
     }
     
 }

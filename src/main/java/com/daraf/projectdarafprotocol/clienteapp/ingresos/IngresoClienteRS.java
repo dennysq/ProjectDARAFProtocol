@@ -13,19 +13,44 @@ import com.daraf.projectdarafprotocol.Cuerpo;
  */
 public class IngresoClienteRS implements Cuerpo {
 
+    private String resultado;
+    
     @Override
     public String asTexto() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.getResultado(); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public boolean validate(String input) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(input.length()==1){
+          return true ; 
+        }
+        else {
+            return false;
+        }
+        
     }
 
     @Override
     public void build(String input) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(validate(input)){
+            this.setResultado(input);
+            
+        }
+    }
+
+    /**
+     * @return the resultado
+     */
+    public String getResultado() {
+        return resultado;
+    }
+
+    /**
+     * @param resultado the resultado to set
+     */
+    public void setResultado(String resultado) {
+        this.resultado = resultado;
     }
     
 }

@@ -6,7 +6,7 @@
 package com.daraf.projectdarafprotocol;
 
 
-import com.daraf.projectdarafprotocol.clienteapp.MensajeRS;
+import com.daraf.projectdarafprotocol.appdb.MensajeRS;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  *
  * @author Dennys
  */
-public class AppClient {
+public class DBClient {
 
     private Socket socket;
     //private MensajeRQ messageRQ;
@@ -27,9 +27,9 @@ public class AppClient {
     private PrintWriter output;
     private BufferedReader input;
     public static final String IPADDRESS = "127.0.0.1";
-    public static final int PORT = 4001;
+    public static final int PORT = 5002;
 
-    public AppClient() {
+    public DBClient() {
 //        socket = new Socket(IPADDRESS, PORT);
 //        input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 //        output = new PrintWriter(socket.getOutputStream(), true);
@@ -55,6 +55,8 @@ public class AppClient {
 
             output.write("FIN");
             output.flush();
+            output.close();
+            input.close();
             socket.close();
             if (response != null) {
                 MensajeRS mensajeRS = new MensajeRS();
@@ -63,7 +65,7 @@ public class AppClient {
                 }
             }
         } catch (IOException ex) {
-            Logger.getLogger(AppClient.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DBClient.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

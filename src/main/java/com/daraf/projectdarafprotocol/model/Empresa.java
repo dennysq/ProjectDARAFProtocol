@@ -27,7 +27,15 @@ public class Empresa {
     //excepto si son IDs de la clase, esos usan StringUtils.leftPad y se rellenan con ceros
     
     //Solo manejamos la autentifacion de una empresa
-
+    public Empresa(String a, String b, String c, String d, String e, String f)
+    {
+        RUC = a;
+        nombre=b;
+        telefono = c;
+        direccion = d;
+        usuario= e;
+        password=f;
+    }
     public String getNombre() {
         return nombre;
     }
@@ -50,6 +58,11 @@ public class Empresa {
 
     public void setPassword(String password) {
         this.password = StringUtils.rightPad(password, 10, " ");
+    }
+
+    @Override
+    public String toString() {
+        return "Empresa{" + "RUC=" + RUC + ", nombre=" + nombre + ", telefono=" + telefono + ", direccion=" + direccion + ", usuario=" + usuario + ", password=" + password + '}';
     }
     
     

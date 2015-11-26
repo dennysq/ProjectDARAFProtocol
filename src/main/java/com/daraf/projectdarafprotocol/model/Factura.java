@@ -5,6 +5,9 @@
  */
 package com.daraf.projectdarafprotocol.model;
 
+import com.daraf.projectdarafprotocol.Cuerpo;
+import java.util.List;
+
 /**
  *
  * @author ShipO
@@ -18,6 +21,9 @@ public class Factura {
     private String fecha;//Longitud fija:8              Ejemplo: ddMMyyyy 11092013
     private String total;//Longitud fija:10             Ejemplo: 1256.30 *Siempre debe tener 2 decimales
 
+    private List<DetalleFacturaAppRQ> detalles;
+    
+    
     //Todos los string de longitud fija usan StringUtils.rightPad y se rellenan con espacios en blanco
     //excepto si son IDs de la clase, esos usan StringUtils.leftPad y se rellenan con ceros
     public Factura(String id, String idCliente, String fecha, String total) {
@@ -42,10 +48,6 @@ public class Factura {
         return total;
     }
 
-    public String getIdCliente() {
-        return identificacionCliente;
-    }
-
     public void setId(String id) {
         this.id = id;
     }
@@ -58,10 +60,28 @@ public class Factura {
         this.total = total;
     }
 
-    public void setIdCliente(String idCliente) {
-        this.identificacionCliente = idCliente;
+    public List<DetalleFacturaAppRQ> getDetalles() {
+        return detalles;
     }
 
+    public void setDetalles(List<DetalleFacturaAppRQ> detalles) {
+        this.detalles = detalles;
+    }
+
+    public String getIdentificacionCliente() {
+        return identificacionCliente;
+    }
+
+    public void setIdentificacionCliente(String identificacionCliente) {
+        this.identificacionCliente = identificacionCliente;
+    }
+
+    @Override
+    public String toString() {
+        //No estoy segura de como debe ir el toString de detalles
+        return  id + Cuerpo.FIELD_SEPARATOR_CHAR + identificacionCliente + Cuerpo.FIELD_SEPARATOR_CHAR + fecha + Cuerpo.FIELD_SEPARATOR_CHAR + total + Cuerpo.FIELD_SEPARATOR_CHAR + detalles.toString();
+    }
+  
     public String astexto() {
         return id + "\t" + fecha + "\t" + total + "\t" + identificacionCliente;
     }

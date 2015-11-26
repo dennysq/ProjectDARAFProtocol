@@ -5,6 +5,8 @@
  */
 package com.daraf.projectdarafprotocol.model;
 
+import com.daraf.projectdarafprotocol.Cuerpo;
+
 /**
  *
  * @author ShipO
@@ -63,7 +65,8 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return identificacion+"\t"+nombre + "\t" + telefono + "\t" + direccion + "\t" ;
+        return identificacion+Cuerpo.FIELD_SEPARATOR_CHAR+nombre + Cuerpo.FIELD_SEPARATOR_CHAR + telefono 
+                + Cuerpo.FIELD_SEPARATOR_CHAR + direccion + Cuerpo.FIELD_SEPARATOR_CHAR ;
     }
 
     public void setIdentificacion(String identificacion) {
@@ -71,6 +74,6 @@ public class Cliente {
     }
 
     public String asTexto() {
-        return id.toString() + "\t" + nombre + "\t" + telefono + "\t" + direccion + "\t" + identificacion;
+        return identificacion + "\t" + nombre + "\t" + telefono + "\t" + direccion ;
     }
 }

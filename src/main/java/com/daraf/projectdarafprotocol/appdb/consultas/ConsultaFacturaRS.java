@@ -82,7 +82,7 @@ public class ConsultaFacturaRS implements Cuerpo {
                 int stringIndex = 0;
                 
                 DetalleFacturaAppRQ f = null;
-                for (int i = 0; i < Integer.parseInt(this.factura.getNumeroDetalles()); i++) {
+                for (int i = 0; i < Integer.parseInt(this.factura.getNumeroDetalles().trim()); i++) {
                     f = new DetalleFacturaAppRQ();
                     f.setIdProducto(detalleValues[stringIndex].trim());
                     stringIndex++;

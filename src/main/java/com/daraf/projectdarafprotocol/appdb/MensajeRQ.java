@@ -12,7 +12,7 @@ import com.daraf.projectdarafprotocol.appdb.consultas.ConsultaFacturaRQ;
 import com.daraf.projectdarafprotocol.appdb.ingresos.IngresoClienteRQ;
 import com.daraf.projectdarafprotocol.appdb.ingresos.IngresoFacturaRQ;
 import com.daraf.projectdarafprotocol.appdb.seguridades.AutenticacionEmpresaRQ;
-import com.daraf.projectdarafprotocol.clienteapp.consultas.ConsultaProductoRQ;
+import com.daraf.projectdarafprotocol.appdb.consultas.ConsultaProductoRQ;
 
 /**
  *

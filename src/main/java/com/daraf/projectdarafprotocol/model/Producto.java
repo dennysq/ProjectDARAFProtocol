@@ -22,8 +22,8 @@ public class Producto {
 
     //Todos los string de longitud fija usan StringUtils.rightPad y se rellenan con espacios en blanco
     //excepto si son IDs de la clase, esos usan StringUtils.leftPad y se rellenan con ceros
-    public Producto() {
-
+    public Producto (){
+        
     }
 
     public Producto(String id, String nombre, String precio, String cantidad) {
@@ -32,7 +32,9 @@ public class Producto {
         this.precio = precio;
         this.cantidad = cantidad;
     }
-
+    
+    
+    
     public String getId() {
         return id;
     }

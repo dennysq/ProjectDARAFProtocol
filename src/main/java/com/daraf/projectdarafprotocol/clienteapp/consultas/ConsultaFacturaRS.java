@@ -66,32 +66,33 @@ public class ConsultaFacturaRS implements Cuerpo {
                 input = StringUtils.rightPad(input, 2000);
             }
             try {
-                String facturaValues[] = MyStringUtil.splitByFixedLengths(input, new int[]{10, 8, 10, 10,   1948});
+                String facturaValues[] = MyStringUtil.splitByFixedLengths(input, new int[]{10, 8, 10, 10, 4, 1958});
                 this.factura = new Factura();
                         
                 this.factura.setId(facturaValues[0]);
                 this.factura.setFecha(facturaValues[1]);
                 this.factura.setTotal(facturaValues[2]);
                 this.factura.setIdentificacionCliente(facturaValues[3]);
+                this.factura.setNumeroDetalles(facturaValues[4]);
                 
-                String detalleValues[] = StringUtils.splitPreserveAllTokens(facturaValues[4], FIELD_SEPARATOR_CHAR);
+                String detalleValues[] = StringUtils.splitPreserveAllTokens(facturaValues[5], FIELD_SEPARATOR_CHAR);
 
                 List<DetalleFacturaAppRQ> detallesFactura;
                 detallesFactura = new ArrayList<>();
                 
                 int stringIndex = 0;
-
-                /*
+                
                 DetalleFacturaAppRQ f = null;
-                for (int i = 0; i < numFacturas; i++) {
+                for (int i = 0; i < Integer.parseInt(this.factura.getNumeroDetalles()); i++) {
                     f = new DetalleFacturaAppRQ();
                     f.setIdProducto(detalleValues[stringIndex].trim());
                     stringIndex++;
                     f.setCantidad(detalleValues[stringIndex].trim());
                     stringIndex++;
-                    this.detalles.add(f);
+                    detallesFactura.add(f);
                 }
-                        */
+                this.factura.setDetalles(detallesFactura);
+                        
             } catch (Exception ex) {
                 Logger.getLogger(IngresoFacturaRQ.class.getName()).log(Level.SEVERE, null, ex);
             }

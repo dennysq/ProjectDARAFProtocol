@@ -18,6 +18,7 @@ public class ConsultaClienteRS implements Cuerpo {
     private String nombre;
     private String telefono;
     private String direccion;
+    
     @Override
     public String asTexto() {
          return resultado+Cuerpo.FIELD_SEPARATOR_CHAR+id+Cuerpo.FIELD_SEPARATOR_CHAR+nombre

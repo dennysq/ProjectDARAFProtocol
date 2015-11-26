@@ -5,6 +5,8 @@
  */
 package com.daraf.projectdarafprotocol.model;
 
+import com.daraf.projectdarafprotocol.Cuerpo;
+
 /**
  *
  * @author ShipO
@@ -53,4 +55,12 @@ public class Producto
     public void setCantidad(String cantidad) {
         this.cantidad = cantidad;
     }
+
+    @Override
+    public String toString() {
+        return id + Cuerpo.FIELD_SEPARATOR_CHAR + nombre + Cuerpo.FIELD_SEPARATOR_CHAR + precio + Cuerpo.FIELD_SEPARATOR_CHAR + cantidad;
+    }
+    
+    
+    
 }

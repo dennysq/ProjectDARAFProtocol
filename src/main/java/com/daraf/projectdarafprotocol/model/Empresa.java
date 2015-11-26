@@ -22,6 +22,7 @@ public class Empresa {
     private String direccion;//Longitud: 50         Ejemplo: Latacunga, Calle 2 de Mayo y Tarqui 
     private String usuario; //Longitud fija: 10     Ejemplo:admin
     private String password; // Longitud fija: 10   Ejemplo:123456789
+    
 
     //Todos los string de longitud fija usan StringUtils.rightPad y se rellenan con espacios en blanco
     //excepto si son IDs de la clase, esos usan StringUtils.leftPad y se rellenan con ceros
@@ -92,4 +93,5 @@ public class Empresa {
         this.direccion = direccion;
     }
 
+    
 }

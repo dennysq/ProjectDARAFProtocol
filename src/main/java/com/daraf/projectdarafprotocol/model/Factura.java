@@ -21,16 +21,18 @@ public class Factura {
     private String fecha;//Longitud fija:8              Ejemplo: ddMMyyyy 11092013
     private String total;//Longitud fija:10             Ejemplo: 1256.30 *Siempre debe tener 2 decimales
 
+    private String numeroDetalles;
     private List<DetalleFacturaAppRQ> detalles;
     
     
     //Todos los string de longitud fija usan StringUtils.rightPad y se rellenan con espacios en blanco
     //excepto si son IDs de la clase, esos usan StringUtils.leftPad y se rellenan con ceros
-    public Factura(String id, String idCliente, String fecha, String total) {
+    public Factura(String id, String idCliente, String fecha,  String total, String numero) {
         this.id = id;
         this.fecha = fecha;
         this.total = total;
         this.identificacionCliente = idCliente;
+        this.numeroDetalles = numero;
     }
 
     public Factura() {
@@ -76,13 +78,27 @@ public class Factura {
         this.identificacionCliente = identificacionCliente;
     }
 
+    public String getNumeroDetalles() {
+        return numeroDetalles;
+    }
+
+    public void setNumeroDetalles(String numeroDetalles) {
+        this.numeroDetalles = numeroDetalles;
+    }
+
+    
     @Override
     public String toString() {
         //No estoy segura de como debe ir el toString de detalles
-        return  id + Cuerpo.FIELD_SEPARATOR_CHAR + identificacionCliente + Cuerpo.FIELD_SEPARATOR_CHAR + fecha + Cuerpo.FIELD_SEPARATOR_CHAR + total + Cuerpo.FIELD_SEPARATOR_CHAR + detalles.toString();
+        return  id + Cuerpo.FIELD_SEPARATOR_CHAR + 
+                fecha + Cuerpo.FIELD_SEPARATOR_CHAR + 
+                total + Cuerpo.FIELD_SEPARATOR_CHAR + 
+                identificacionCliente + Cuerpo.FIELD_SEPARATOR_CHAR+
+                numeroDetalles+Cuerpo.FIELD_SEPARATOR_CHAR + 
+                detalles.toString()+Cuerpo.FIELD_SEPARATOR_CHAR;
     }
   
     public String astexto() {
-        return id + "\t" + fecha + "\t" + total + "\t" + identificacionCliente;
+        return id + "\t" + fecha + "\t" + total+ "\t" + identificacionCliente + "\t"+numeroDetalles;
     }
 }

@@ -57,7 +57,7 @@ public class ConsultaProductoRS implements Cuerpo {
     public void build(String input) {
         
         if (validate(input)) {
-            if (input.length() < 401) {
+            if (input.length() < 73) {
                 input = StringUtils.rightPad(input, 73, " ");
             }
             try {

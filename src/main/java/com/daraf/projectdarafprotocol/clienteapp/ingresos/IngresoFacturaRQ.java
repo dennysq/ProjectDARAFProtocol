@@ -6,7 +6,7 @@
 package com.daraf.projectdarafprotocol.clienteapp.ingresos;
 
 import com.daraf.projectdarafprotocol.Cuerpo;
-import com.daraf.projectdarafprotocol.model.DetalleFactura;
+import com.daraf.projectdarafprotocol.model.DetalleFacturaAppRQ;
 import com.daraf.projectdarafutil.MyStringUtil;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,11 +21,26 @@ import org.apache.commons.lang3.StringUtils;
 public class IngresoFacturaRQ implements Cuerpo {
 
     private String identificacion;
-    private String nombre;
-    private String telefono;
-    private String direccion;
+    private String total;
     private String numeroDetalles;
-    private List<DetalleFactura> detalles;
+    private List<DetalleFacturaAppRQ> detalles;
+    private String fecha;
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setTotal(String total) {
+        this.total = StringUtils.leftPad(total, 10, "0");
+    }
+
+    public String getTotal() {
+        return total;
+    }
 
     public void setNumeroDetalles(String numeroDetalles) {
         this.numeroDetalles = StringUtils.leftPad(numeroDetalles, 4, "0");
@@ -43,41 +58,17 @@ public class IngresoFacturaRQ implements Cuerpo {
         this.identificacion = StringUtils.rightPad(identificacion, 20);
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = StringUtils.rightPad(nombre, 40);
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = StringUtils.rightPad(telefono, 15);
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = StringUtils.rightPad(direccion, 100);
-    }
-
-    public List<DetalleFactura> getDetalles() {
+    public List<DetalleFacturaAppRQ> getDetalles() {
         return detalles;
     }
 
-    public void setDetalles(List<DetalleFactura> detalles) {
+    public void setDetalles(List<DetalleFacturaAppRQ> detalles) {
         this.detalles = detalles;
     }
 
     @Override
     public String asTexto() {
-        return this.identificacion + this.nombre + this.telefono + this.direccion + this.numeroDetalles + detallesAsTexto();
+        return this.identificacion + this.numeroDetalles + detallesAsTexto();
     }
 
     @Override
@@ -96,14 +87,13 @@ public class IngresoFacturaRQ implements Cuerpo {
                 input = StringUtils.rightPad(input, 2000);
             }
             try {
-                String facturaValues[] = MyStringUtil.splitByFixedLengths(input, new int[]{20, 40, 15, 100, 4, 1821});
+                String facturaValues[] = MyStringUtil.splitByFixedLengths(input, new int[]{20, 4, 8, 10, 1858});
                 this.identificacion = facturaValues[0];
-                this.nombre = facturaValues[1];
-                this.telefono = facturaValues[2];
-                this.direccion = facturaValues[3];
-                this.numeroDetalles = facturaValues[4];
+                this.numeroDetalles = facturaValues[1];
+                this.fecha = facturaValues[2];
+                this.total = facturaValues[3];
                 int numFacturas = Integer.parseInt(this.numeroDetalles);
-                String detalleValues[] = StringUtils.splitPreserveAllTokens(facturaValues[5], FIELD_SEPARATOR_CHAR);
+                String detalleValues[] = StringUtils.splitPreserveAllTokens(facturaValues[4], FIELD_SEPARATOR_CHAR);
 
                 if (detalles == null) {
                     detalles = new ArrayList<>();
@@ -112,14 +102,10 @@ public class IngresoFacturaRQ implements Cuerpo {
                 }
                 int stringIndex = 0;
 
-                DetalleFactura f = null;
+                DetalleFacturaAppRQ f = null;
                 for (int i = 0; i < numFacturas; i++) {
-                    f = new DetalleFactura();
+                    f = new DetalleFacturaAppRQ();
                     f.setIdProducto(facturaValues[stringIndex].trim());
-                    stringIndex++;
-                    f.setNombre(facturaValues[stringIndex].trim());
-                    stringIndex++;
-                    f.setPrecio(facturaValues[stringIndex].trim());
                     stringIndex++;
                     f.setCantidad(facturaValues[stringIndex].trim());
                     stringIndex++;

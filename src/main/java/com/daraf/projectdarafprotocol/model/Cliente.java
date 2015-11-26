@@ -78,6 +78,6 @@ public class Cliente {
     }
 
     public String asTexto() {
-        return id.toString() + "\t" + nombre + "\t" + telefono + "\t" + direccion + "\t" + identificacion;
+        return id + "\t" + nombre + "\t" + telefono + "\t" + direccion + "\t" + identificacion;
     }
 }

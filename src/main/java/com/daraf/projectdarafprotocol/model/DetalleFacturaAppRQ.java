@@ -11,22 +11,13 @@ import com.daraf.projectdarafprotocol.Cuerpo;
  *
  * @author Dennys
  */
-public class DetalleFactura {
+public class DetalleFacturaAppRQ {
 
     private String idProducto;
-    private String precio;
-    private String nombre;
+
     private String cantidad;
 
-    public DetalleFactura() {
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public DetalleFacturaAppRQ() {
     }
 
     public String getCantidad() {
@@ -45,17 +36,9 @@ public class DetalleFactura {
         this.cantidad = cantidad;
     }
 
-    public String getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(String precio) {
-        this.precio = precio;
-    }
-
     @Override
     public String toString() {
-        return idProducto + Cuerpo.FIELD_SEPARATOR_CHAR + nombre + Cuerpo.FIELD_SEPARATOR_CHAR + precio + Cuerpo.FIELD_SEPARATOR_CHAR + cantidad + Cuerpo.FIELD_SEPARATOR_CHAR;
+        return idProducto + Cuerpo.FIELD_SEPARATOR_CHAR + cantidad + Cuerpo.FIELD_SEPARATOR_CHAR;
     }
 
 }

@@ -1,12 +1,13 @@
 package com.daraf.projectdarafprotocol;
 
 public interface Cuerpo {
-public static final char FIELD_SEPARATOR_CHAR='|';
 
-	public String asTexto();
+    public static final char FIELD_SEPARATOR_CHAR = '|';
 
-	public boolean validate(String input);
+    public String asTexto();
 
-	public void build(String input);
-	
+    public boolean validate(String input);
+
+    public void build(String input);
+
 }

@@ -27,13 +27,16 @@ public class AutenticacionEmpresaRS implements Cuerpo {
             //solo si es uno retorno con los datos de la empresa encontrada
             return this.resultado + this.empresa.toString();
         } else {
+            if (resultado == null) {
+                return "2";
+            }
             return this.resultado;
         }
     }
 
     @Override
     public boolean validate(String input) {
-        return input.length() >= 1 && input.length() <= 401;
+        return input != null && input.length() >= 1 && input.length() <= 401;
     }
 
     @Override

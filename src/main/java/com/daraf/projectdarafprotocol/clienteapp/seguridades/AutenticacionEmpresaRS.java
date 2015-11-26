@@ -51,7 +51,7 @@ public class AutenticacionEmpresaRS implements Cuerpo {
                 if (resultado.equals("1")) {
                     String empresaValues[] = StringUtils.splitPreserveAllTokens(values[1], Cuerpo.FIELD_SEPARATOR_CHAR);
                     this.empresa = new Empresa();
-                    this.empresa.setRUC(empresaValues[0]);
+                    this.empresa.setRuc(empresaValues[0]);
                     this.empresa.setNombre(empresaValues[1]);
                     this.empresa.setTelefono(empresaValues[2]);
                     this.empresa.setDireccion(empresaValues[3]);

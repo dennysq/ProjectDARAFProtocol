@@ -16,7 +16,7 @@ public class Empresa {
 
     //Cuando se armen las cadenas asTexto y cuando se las desmonte se debe hacer en el mismo orden de los
     //atributos de esta clase
-    private String RUC;//Longitud : 13              Ejemplo: 0000235681000
+    private String ruc;//Longitud : 13              Ejemplo: 0000235681000
     private String nombre; //Longitud: 20           Ejemplo: AlterBios
     private String telefono;//Longitud: 10          Ejemplo: 032816955
     private String direccion;//Longitud: 50         Ejemplo: Latacunga, Calle 2 de Mayo y Tarqui 
@@ -28,7 +28,7 @@ public class Empresa {
     //excepto si son IDs de la clase, esos usan StringUtils.leftPad y se rellenan con ceros
     //Solo manejamos la autentifacion de una empresa
     public Empresa(String a, String b, String c, String d, String e, String f) {
-        RUC = a;
+        ruc = a;
         nombre = b;
         telefono = c;
         direccion = d;
@@ -66,15 +66,15 @@ public class Empresa {
 
     @Override
     public String toString() {
-        return RUC + Cuerpo.FIELD_SEPARATOR_CHAR + nombre + Cuerpo.FIELD_SEPARATOR_CHAR + telefono + Cuerpo.FIELD_SEPARATOR_CHAR + direccion + Cuerpo.FIELD_SEPARATOR_CHAR + usuario + Cuerpo.FIELD_SEPARATOR_CHAR + password + Cuerpo.FIELD_SEPARATOR_CHAR;
+        return ruc + Cuerpo.FIELD_SEPARATOR_CHAR + nombre + Cuerpo.FIELD_SEPARATOR_CHAR + telefono + Cuerpo.FIELD_SEPARATOR_CHAR + direccion + Cuerpo.FIELD_SEPARATOR_CHAR + usuario + Cuerpo.FIELD_SEPARATOR_CHAR + password + Cuerpo.FIELD_SEPARATOR_CHAR;
     }
 
-    public String getRUC() {
-        return RUC;
+    public String getRuc() {
+        return ruc;
     }
 
-    public void setRUC(String RUC) {
-        this.RUC = RUC;
+    public void setRuc(String ruc) {
+        this.ruc = ruc;
     }
 
     public String getTelefono() {

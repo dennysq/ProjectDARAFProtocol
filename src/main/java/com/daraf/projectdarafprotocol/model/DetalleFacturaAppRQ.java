@@ -20,6 +20,11 @@ public class DetalleFacturaAppRQ {
     public DetalleFacturaAppRQ() {
     }
 
+    public DetalleFacturaAppRQ(String idProducto, String cantidad) {
+        this.idProducto = idProducto;
+        this.cantidad = cantidad;
+    }
+
     public String getCantidad() {
         return cantidad;
     }

@@ -93,7 +93,7 @@ public class IngresoFacturaRQ implements Cuerpo {
             }
             try {
 
-                String values[] = MyStringUtil.splitByFixedLengths(input, new int[]{10, 20, 8, 10, 4, 1958});
+                String values[] = MyStringUtil.splitByFixedLengths(input, new int[]{10, 20, 8, 10, 4, 1948});
                 this.idFactura = values[0];
                 this.identificacionCliente = values[1];
                 this.fecha = values[2];

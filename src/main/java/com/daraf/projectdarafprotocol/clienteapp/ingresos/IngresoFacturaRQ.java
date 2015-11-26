@@ -20,6 +20,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class IngresoFacturaRQ implements Cuerpo {
 
+    private String idFactura;
     private String identificacion;
     private String total;
     private String numeroDetalles;
@@ -32,6 +33,14 @@ public class IngresoFacturaRQ implements Cuerpo {
 
     public String getFecha() {
         return fecha;
+    }
+
+    public void setIdFactura(String idFactura) {
+        this.idFactura = StringUtils.leftPad(idFactura, 10, "0");
+    }
+
+    public String getIdFactura() {
+        return idFactura;
     }
 
     public void setTotal(String total) {
@@ -68,7 +77,7 @@ public class IngresoFacturaRQ implements Cuerpo {
 
     @Override
     public String asTexto() {
-        return this.identificacion + this.numeroDetalles + detallesAsTexto();
+        return this.idFactura + this.identificacion + this.numeroDetalles + this.fecha + this.total + detallesAsTexto();
     }
 
     @Override
@@ -87,13 +96,14 @@ public class IngresoFacturaRQ implements Cuerpo {
                 input = StringUtils.rightPad(input, 2000);
             }
             try {
-                String facturaValues[] = MyStringUtil.splitByFixedLengths(input, new int[]{20, 4, 8, 10, 1858});
-                this.identificacion = facturaValues[0];
-                this.numeroDetalles = facturaValues[1];
-                this.fecha = facturaValues[2];
-                this.total = facturaValues[3];
+                String facturaValues[] = MyStringUtil.splitByFixedLengths(input, new int[]{10, 20, 4, 8, 10, 1948});
+                this.idFactura = facturaValues[0];
+                this.identificacion = facturaValues[1];
+                this.numeroDetalles = facturaValues[2];
+                this.fecha = facturaValues[3];
+                this.total = facturaValues[4];
                 int numFacturas = Integer.parseInt(this.numeroDetalles);
-                String detalleValues[] = StringUtils.splitPreserveAllTokens(facturaValues[4], FIELD_SEPARATOR_CHAR);
+                String detalleValues[] = StringUtils.splitPreserveAllTokens(facturaValues[5], FIELD_SEPARATOR_CHAR);
 
                 if (detalles == null) {
                     detalles = new ArrayList<>();
@@ -105,9 +115,9 @@ public class IngresoFacturaRQ implements Cuerpo {
                 DetalleFacturaAppRQ f = null;
                 for (int i = 0; i < numFacturas; i++) {
                     f = new DetalleFacturaAppRQ();
-                    f.setIdProducto(facturaValues[stringIndex].trim());
+                    f.setIdProducto(detalleValues[stringIndex].trim());
                     stringIndex++;
-                    f.setCantidad(facturaValues[stringIndex].trim());
+                    f.setCantidad(detalleValues[stringIndex].trim());
                     stringIndex++;
                     this.detalles.add(f);
                 }

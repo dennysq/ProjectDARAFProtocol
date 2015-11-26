@@ -6,6 +6,13 @@
 package com.daraf.projectdarafprotocol.clienteapp.consultas;
 
 import com.daraf.projectdarafprotocol.Cuerpo;
+import com.daraf.projectdarafprotocol.clienteapp.seguridades.AutenticacionEmpresaRS;
+import com.daraf.projectdarafprotocol.model.Cliente;
+import com.daraf.projectdarafprotocol.model.Empresa;
+import com.daraf.projectdarafutil.MyStringUtil;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -14,32 +21,50 @@ import com.daraf.projectdarafprotocol.Cuerpo;
 public class ConsultaClienteRS implements Cuerpo {
 
     private String resultado;
-    private String id;
-    private String nombre;
-    private String telefono;
-    private String direccion;
+    private Cliente cliente;
+
     @Override
     public String asTexto() {
-         return resultado+Cuerpo.FIELD_SEPARATOR_CHAR+id+Cuerpo.FIELD_SEPARATOR_CHAR+nombre
-                 +Cuerpo.FIELD_SEPARATOR_CHAR+telefono+Cuerpo.FIELD_SEPARATOR_CHAR+direccion+Cuerpo.FIELD_SEPARATOR_CHAR;
+        if (this.resultado != null && this.resultado.equals("1")) {
+            //solo si es uno retorno con los datos de la empresa encontrada
+            return this.resultado + this.cliente.getIdentificacion()+Cuerpo.FIELD_SEPARATOR_CHAR+this.cliente.getNombre()+Cuerpo.FIELD_SEPARATOR_CHAR+this.cliente.getTelefono()
+                    +Cuerpo.FIELD_SEPARATOR_CHAR+this.cliente.getDireccion()+Cuerpo.FIELD_SEPARATOR_CHAR;
+        } else {
+            return this.resultado;
+        }
     }
 
     @Override
-    public boolean validate(String input) 
-    {
-        if(input!=null && input.length()>1 && input.length()<=201)
-        {
+    public boolean validate(String input) {
+        if (input != null && input.length() > 1 && input.length() <= 201) {
             return true;
-        }else
-        {
+        } else {
             return false;
         }
-        
+
     }
 
     @Override
     public void build(String input) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (validate(input)) {
+            if (input.length() < 201) {
+                input = StringUtils.rightPad(input, 201, " ");
+            }
+            try {
+                String values[] = MyStringUtil.splitByFixedLengths(input, new int[]{1, 200});
+                this.resultado = values[0];
+                if (resultado.equals("1")) {
+                    String CliValues[] = StringUtils.splitPreserveAllTokens(values[1], Cuerpo.FIELD_SEPARATOR_CHAR);
+                    this.cliente = new Cliente();
+                    this.cliente.setIdentificacion(CliValues[0]);
+                    this.cliente.setNombre(CliValues[1]);
+                    this.cliente.setTelefono(CliValues[2]);
+                    this.cliente.setDireccion(CliValues[3]);
+                }
+            } catch (Exception ex) {
+                Logger.getLogger(ConsultaClienteRS.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
     /**
@@ -57,59 +82,16 @@ public class ConsultaClienteRS implements Cuerpo {
     }
 
     /**
-     * @return the id
+     * @return the cliente
      */
-    public String getId() {
-        return id;
+    public Cliente getCliente() {
+        return cliente;
     }
 
     /**
-     * @param id the id to set
+     * @param cliente the cliente to set
      */
-    public void setId(String id) {
-        this.id = id;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
-
-    /**
-     * @return the nombre
-     */
-    public String getNombre() {
-        return nombre;
-    }
-
-    /**
-     * @param nombre the nombre to set
-     */
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    /**
-     * @return the telefono
-     */
-    public String getTelefono() {
-        return telefono;
-    }
-
-    /**
-     * @param telefono the telefono to set
-     */
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    /**
-     * @return the direccion
-     */
-    public String getDireccion() {
-        return direccion;
-    }
-
-    /**
-     * @param direccion the direccion to set
-     */
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-    
 }

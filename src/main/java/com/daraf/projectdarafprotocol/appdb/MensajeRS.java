@@ -7,8 +7,10 @@ package com.daraf.projectdarafprotocol.appdb;
 
 import com.daraf.projectdarafprotocol.Cabecera;
 import com.daraf.projectdarafprotocol.Mensaje;
+import static com.daraf.projectdarafprotocol.Mensaje.ID_MENSAJE_CONSULTAPRODUCTO;
 import com.daraf.projectdarafprotocol.appdb.consultas.ConsultaClienteRS;
 import com.daraf.projectdarafprotocol.appdb.consultas.ConsultaFacturaRS;
+import com.daraf.projectdarafprotocol.appdb.consultas.ConsultaProductoRS;
 import com.daraf.projectdarafprotocol.appdb.ingresos.IngresoClienteRS;
 import com.daraf.projectdarafprotocol.appdb.ingresos.IngresoFacturaRS;
 import com.daraf.projectdarafprotocol.appdb.seguridades.AutenticacionEmpresaRS;
@@ -60,6 +62,11 @@ public class MensajeRS extends Mensaje {
 						IngresoFacturaRS ingresoFacturaRS = new IngresoFacturaRS();
 						ingresoFacturaRS.build(cuerpo);
 						this.cuerpo = ingresoFacturaRS;
+						break;
+                                        case ID_MENSAJE_CONSULTAPRODUCTO:
+						ConsultaProductoRS consultaProductoRS = new ConsultaProductoRS();
+						consultaProductoRS.build(cuerpo);
+						this.cuerpo = consultaProductoRS;
 						break;
 					default:
 						result = false;

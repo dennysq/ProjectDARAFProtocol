@@ -7,6 +7,7 @@ package com.daraf.projectdarafprotocol.clienteapp;
 
 import com.daraf.projectdarafprotocol.Cabecera;
 import com.daraf.projectdarafprotocol.Mensaje;
+import com.daraf.projectdarafprotocol.clienteapp.consultas.ConsultaProductoRS;
 import com.daraf.projectdarafprotocol.clienteapp.consultas.ConsultaClienteRS;
 import com.daraf.projectdarafprotocol.clienteapp.consultas.ConsultaFacturaRS;
 import com.daraf.projectdarafprotocol.clienteapp.ingresos.IngresoClienteRS;
@@ -60,6 +61,11 @@ public class MensajeRS extends Mensaje {
 						IngresoFacturaRS ingresoFacturaRS = new IngresoFacturaRS();
 						ingresoFacturaRS.build(cuerpo);
 						this.cuerpo = ingresoFacturaRS;
+						break;
+                                        case ID_MENSAJE_CONSULTAPRODUCTO:
+						ConsultaProductoRS consultaProductoRS = new ConsultaProductoRS();
+						consultaProductoRS.build(cuerpo);
+						this.cuerpo = consultaProductoRS;
 						break;
 					default:
 						result = false;

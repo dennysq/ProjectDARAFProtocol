@@ -20,8 +20,7 @@ public class IngresoClienteRQ implements Cuerpo {
     @Override
     public String asTexto() 
     {
-        return this.cliente.getIdentificacion()+Cuerpo.FIELD_SEPARATOR_CHAR+this.cliente.getNombre()+Cuerpo.FIELD_SEPARATOR_CHAR+this.cliente.getDireccion()+Cuerpo.FIELD_SEPARATOR_CHAR+
-                this.cliente.getTelefono()+Cuerpo.FIELD_SEPARATOR_CHAR;
+        return this.cliente.toString();
     }
 
     @Override
@@ -36,14 +35,16 @@ public class IngresoClienteRQ implements Cuerpo {
     @Override
     public void build(String input) 
     {
+        
         if(validate(input))
         {
             try{
                String values[]=StringUtils.splitPreserveAllTokens(input,Cuerpo.FIELD_SEPARATOR_CHAR);
-                cliente.setIdentificacion(values[0]);
-                cliente.setNombre(values[1]);
-                cliente.setDireccion(values[2]);
-                cliente.setTelefono(values[3]);
+               this.cliente = new Cliente();
+                this.cliente.setIdentificacion(values[0]);
+                this.cliente.setNombre(values[1]);
+                this.cliente.setTelefono(values[2]);
+                this.cliente.setDireccion(values[3]);
             }catch(Exception e){
                 System.out.println(" "+e);
             }

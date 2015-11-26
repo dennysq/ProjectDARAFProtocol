@@ -51,6 +51,7 @@ public class DBClient {
                 if (response != null) {
                     break;
                 }
+                attemps++;
             } while (attemps <= 5);
 
             output.write("FIN");
@@ -66,6 +67,7 @@ public class DBClient {
             }
         } catch (IOException ex) {
             Logger.getLogger(DBClient.class.getName()).log(Level.SEVERE, null, ex);
+            System.err.println(""+ex);
         }
         return null;
     }

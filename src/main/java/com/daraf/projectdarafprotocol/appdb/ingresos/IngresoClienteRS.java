@@ -14,26 +14,28 @@ import com.daraf.projectdarafprotocol.Cuerpo;
 public class IngresoClienteRS implements Cuerpo {
 
     private String resultado;
+
     @Override
     public String asTexto() {
-           return this.getResultado();  
+        return this.getResultado();
     }
 
     @Override
     public boolean validate(String input) {
-     if(input.length()==1){
-          return true ; 
-        }
-        else {
+        if (input.length() == 1) {
+            return true;
+        } else {
             return false;
-        }    }
+        }
+    }
 
     @Override
     public void build(String input) {
-       if(validate(input)){
+        if (validate(input)) {
             this.setResultado(input);
-            
-        }    }
+
+        }
+    }
 
     /**
      * @return the reusltado
@@ -48,5 +50,5 @@ public class IngresoClienteRS implements Cuerpo {
     public void setResultado(String resultado) {
         this.resultado = resultado;
     }
-    
+
 }

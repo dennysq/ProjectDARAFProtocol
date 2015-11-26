@@ -27,13 +27,16 @@ public class AutenticacionEmpresaRS implements Cuerpo {
             //solo si es uno retorno con los datos de la empresa encontrada
             return this.resultado + this.empresa.toString();
         } else {
+            if (resultado == null) {
+                return "2";
+            }
             return this.resultado;
         }
     }
 
     @Override
     public boolean validate(String input) {
-        return input.length() >= 1 && input.length() <= 401;
+        return input != null && input.length() >= 1 && input.length() <= 401;
     }
 
     @Override
@@ -48,7 +51,7 @@ public class AutenticacionEmpresaRS implements Cuerpo {
                 if (resultado.equals("1")) {
                     String empresaValues[] = StringUtils.splitPreserveAllTokens(values[1], Cuerpo.FIELD_SEPARATOR_CHAR);
                     this.empresa = new Empresa();
-                    this.empresa.setRUC(empresaValues[0]);
+                    this.empresa.setRuc(empresaValues[0]);
                     this.empresa.setNombre(empresaValues[1]);
                     this.empresa.setTelefono(empresaValues[2]);
                     this.empresa.setDireccion(empresaValues[3]);

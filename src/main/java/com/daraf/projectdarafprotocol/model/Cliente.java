@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 package com.daraf.projectdarafprotocol.model;
+
 /**
  *
  * @author ShipO
  */
-public class Cliente 
-{
+public class Cliente {
     //Cuando se armen las cadenas asTexto y cuando se las desmonte se debe hacer en el mismo orden de los
     //atributos de esta clase
     
@@ -69,5 +69,8 @@ public class Cliente
     public void setIdentificacion(String identificacion) {
         this.identificacion = identificacion;
     }
-    
+
+    public String asTexto() {
+        return id.toString() + "\t" + nombre + "\t" + telefono + "\t" + direccion + "\t" + identificacion;
+    }
 }

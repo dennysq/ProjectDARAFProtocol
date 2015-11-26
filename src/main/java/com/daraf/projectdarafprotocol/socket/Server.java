@@ -21,7 +21,7 @@ public class Server {
     public static void main(String args[]){
         System.out.println("Servidor arriba");
         try{
-            ServerSocket server = new ServerSocket(4420);
+            ServerSocket server = new ServerSocket(80);
             Socket client = server.accept();
             System.out.println("El cliente ha recibido una conexion");
             BufferedReader input = new BufferedReader (new InputStreamReader(client.getInputStream()));

@@ -23,6 +23,7 @@ public abstract class Mensaje {
 	public static final String ID_MENSAJE_INGRESOCLIENTE = "INGRESOCLI";
 	public static final String ID_MENSAJE_INGRESOFACTURA = "INGRESOFAC";
 	public static final String ID_MENSAJE_AUTENTICACIONCLIENTE = "LOGINCLIEN";
+        public static final String ID_MENSAJE_CONSULTAPRODUCTO = "CONSULTAPR";
 
 
 	public boolean validateBobyHash() {

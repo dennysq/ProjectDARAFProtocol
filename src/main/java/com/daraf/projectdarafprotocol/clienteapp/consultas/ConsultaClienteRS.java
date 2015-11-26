@@ -27,8 +27,7 @@ public class ConsultaClienteRS implements Cuerpo {
     public String asTexto() {
         if (this.resultado != null && this.resultado.equals("1")) {
             //solo si es uno retorno con los datos de la empresa encontrada
-            return this.resultado + this.cliente.getIdentificacion()+Cuerpo.FIELD_SEPARATOR_CHAR+this.cliente.getNombre()+Cuerpo.FIELD_SEPARATOR_CHAR+this.cliente.getTelefono()
-                    +Cuerpo.FIELD_SEPARATOR_CHAR+this.cliente.getDireccion()+Cuerpo.FIELD_SEPARATOR_CHAR;
+            return this.resultado + this.cliente.toString();
         } else {
             return this.resultado;
         }
@@ -36,7 +35,7 @@ public class ConsultaClienteRS implements Cuerpo {
 
     @Override
     public boolean validate(String input) {
-        if (input != null && input.length() > 1 && input.length() <= 201) {
+        if (input != null && input.length() >= 1 && input.length() <= 201) {
             return true;
         } else {
             return false;

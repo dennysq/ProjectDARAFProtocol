@@ -66,7 +66,7 @@ public class Cliente {
     @Override
     public String toString() {
         return identificacion+Cuerpo.FIELD_SEPARATOR_CHAR+nombre + Cuerpo.FIELD_SEPARATOR_CHAR + telefono 
-                + Cuerpo.FIELD_SEPARATOR_CHAR + direccion + Cuerpo.FIELD_SEPARATOR_CHAR ;
+                + Cuerpo.FIELD_SEPARATOR_CHAR + direccion;
     }
 
     public void setIdentificacion(String identificacion) {

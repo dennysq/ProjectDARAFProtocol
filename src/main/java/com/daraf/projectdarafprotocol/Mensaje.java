@@ -24,6 +24,9 @@ public abstract class Mensaje {
 	public static final String ID_MENSAJE_INGRESOFACTURA = "INGRESOFAC";
 	public static final String ID_MENSAJE_AUTENTICACIONCLIENTE = "LOGINCLIEN";
         public static final String ID_MENSAJE_CONSULTAPRODUCTO = "CONSULTAPR";
+        
+        //Para fallos en construccion
+        public static final String ID_MENSAJE_FALLOBUILD = "Fallo al construirse";
 
 
 	public boolean validateBobyHash() {

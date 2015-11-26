@@ -57,6 +57,11 @@ public class AppClient {
             output.flush();
             socket.close();
             if (response != null) {
+                if(response.equals(Mensaje.ID_MENSAJE_FALLOBUILD))
+                {
+                    System.out.println("El mensaje no se pudo construir");
+                    return null;
+                }
                 MensajeRS mensajeRS = new MensajeRS();
                 if (mensajeRS.build(response)) {
                     return mensajeRS;

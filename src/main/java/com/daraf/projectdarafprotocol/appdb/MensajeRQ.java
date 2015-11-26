@@ -12,6 +12,7 @@ import com.daraf.projectdarafprotocol.appdb.consultas.ConsultaFacturaRQ;
 import com.daraf.projectdarafprotocol.appdb.ingresos.IngresoClienteRQ;
 import com.daraf.projectdarafprotocol.appdb.ingresos.IngresoFacturaRQ;
 import com.daraf.projectdarafprotocol.appdb.seguridades.AutenticacionEmpresaRQ;
+import com.daraf.projectdarafprotocol.appdb.consultas.ConsultaProductoRQ;
 
 /**
  *
@@ -60,6 +61,11 @@ public class MensajeRQ extends Mensaje {
 						IngresoFacturaRQ ingresoFacturaRQ = new IngresoFacturaRQ();
 						ingresoFacturaRQ.build(cuerpo);
 						this.cuerpo = ingresoFacturaRQ;
+						break;
+                                        case ID_MENSAJE_CONSULTAPRODUCTO:
+						ConsultaProductoRQ consultaProductoRQ = new ConsultaProductoRQ();
+						consultaProductoRQ.build(cuerpo);
+						this.cuerpo = consultaProductoRQ;
 						break;
 					default:
 						result = false;

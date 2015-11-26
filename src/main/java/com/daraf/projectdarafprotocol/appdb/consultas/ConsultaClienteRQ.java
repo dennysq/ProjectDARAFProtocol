@@ -14,21 +14,45 @@ import com.daraf.projectdarafprotocol.model.Cliente;
  */
 public class ConsultaClienteRQ implements Cuerpo {
 
-    private Cliente cliente;
+    private String identificacion;
+    
     
     @Override
     public String asTexto() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.identificacion;
     }
 
     @Override
     public boolean validate(String input) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(input!=null && input.length()<=15)
+        {
+            return true;
+        }else
+        {
+            return false;
+        }
     }
 
     @Override
     public void build(String input) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                if(this.validate(input))
+        {
+            setIdentificacion(input);
+        }
+    }
+
+    /**
+     * @return the identificacion
+     */
+    public String getIdentificacion() {
+        return identificacion;
+    }
+
+    /**
+     * @param identificacion the identificacion to set
+     */
+    public void setIdentificacion(String identificacion) {
+        this.identificacion = identificacion;
     }
     
 }

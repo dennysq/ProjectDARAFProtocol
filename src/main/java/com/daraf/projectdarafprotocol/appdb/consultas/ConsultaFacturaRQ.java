@@ -13,19 +13,38 @@ import com.daraf.projectdarafprotocol.Cuerpo;
  */
 public class ConsultaFacturaRQ implements Cuerpo {
 
+    private String idFactura;
+
+    public String getIdFactura() {
+        return idFactura;
+    }
+
+    public void setIdFactura(String idFactura) {
+        this.idFactura = idFactura;
+    }
+    
+    
     @Override
     public String asTexto() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return idFactura;
     }
 
     @Override
     public boolean validate(String input) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(input!=null && input.length()<=10)
+        {
+            return true;
+        }else
+        {
+            return false;
+        }
     }
 
     @Override
     public void build(String input) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(this.validate(input))
+        {
+            setIdFactura(input);
+        }
     }
-    
 }

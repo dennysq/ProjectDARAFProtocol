@@ -26,7 +26,7 @@ public class DBClient {
     //private MensajeRS messageRS;
     private PrintWriter output;
     private BufferedReader input;
-    public static final String IPADDRESS = "127.0.0.1";
+    public static final String IPADDRESS = "192.168.0.3";
     public static final int PORT = 5002;
 
     public DBClient() {

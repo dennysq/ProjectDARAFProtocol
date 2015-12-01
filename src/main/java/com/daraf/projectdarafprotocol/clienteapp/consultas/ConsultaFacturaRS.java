@@ -62,37 +62,50 @@ public class ConsultaFacturaRS implements Cuerpo {
     @Override
     public void build(String input) {
         if (validate(input)) {
-            if (input.length() < 2000) {
-                input = StringUtils.rightPad(input, 2000);
+            if (input.length() < 500) {
+                input = StringUtils.rightPad(input, 500);
             }
             try {
-                String facturaValues[] = MyStringUtil.splitByFixedLengths(input, new int[]{10, 8, 10, 10, 4, 1958});
+                String facturaValues[] = MyStringUtil.splitByFixedLengths(input, new int[]{1, 10, 1, 8, 1, 10, 1, 10, 1, 4, 453});
+                this.resultado= facturaValues[0];
                 this.factura = new Factura();
-                        
-                this.factura.setId(facturaValues[0]);
-                this.factura.setFecha(facturaValues[1]);
-                this.factura.setTotal(facturaValues[2]);
-                this.factura.setIdentificacionCliente(facturaValues[3]);
-                this.factura.setNumeroDetalles(facturaValues[4]);
-                
-                String detalleValues[] = StringUtils.splitPreserveAllTokens(facturaValues[5], FIELD_SEPARATOR_CHAR);
+                this.factura.setId(facturaValues[1]);
+                this.factura.setFecha(facturaValues[3]);
+                this.factura.setTotal(facturaValues[5]);
+                this.factura.setIdentificacionCliente(facturaValues[7]);
+                this.factura.setNumeroDetalles(facturaValues[9]);
+
+                String detalleValues[] = StringUtils.splitPreserveAllTokens(facturaValues[10], FIELD_SEPARATOR_CHAR);
 
                 List<DetalleFacturaAppRQ> detallesFactura;
                 detallesFactura = new ArrayList<>();
-                
+
                 int stringIndex = 0;
+
+                int valora=Integer.parseInt(this.factura.getNumeroDetalles().trim());
+                int valor= valora*2;
+                String detalleValores[]= new String[valor];
                 
+                int j=0;
+                for (int i = 0; i < detalleValues.length; i++) {
+                    if (i != 0 && i != detalleValues.length-1) {
+                        detalleValores[j]=detalleValues[i];
+                        j++;
+                    }
+                }
+
                 DetalleFacturaAppRQ f = null;
-                for (int i = 0; i < Integer.parseInt(this.factura.getNumeroDetalles()); i++) {
+                for (int i = 0; i < Integer.parseInt(this.factura.getNumeroDetalles().trim()); i++) {
+                    
                     f = new DetalleFacturaAppRQ();
-                    f.setIdProducto(detalleValues[stringIndex].trim());
+                    f.setIdProducto(detalleValores[stringIndex].trim());
                     stringIndex++;
-                    f.setCantidad(detalleValues[stringIndex].trim());
+                    f.setCantidad(detalleValores[stringIndex].trim());
                     stringIndex++;
                     detallesFactura.add(f);
                 }
                 this.factura.setDetalles(detallesFactura);
-                        
+
             } catch (Exception ex) {
                 Logger.getLogger(IngresoFacturaRQ.class.getName()).log(Level.SEVERE, null, ex);
             }

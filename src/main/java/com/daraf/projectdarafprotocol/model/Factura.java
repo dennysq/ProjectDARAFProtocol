@@ -95,7 +95,18 @@ public class Factura {
                 total + Cuerpo.FIELD_SEPARATOR_CHAR + 
                 identificacionCliente + Cuerpo.FIELD_SEPARATOR_CHAR+
                 numeroDetalles+Cuerpo.FIELD_SEPARATOR_CHAR + 
-                detalles.toString()+Cuerpo.FIELD_SEPARATOR_CHAR;
+                detalleAsTexto();
+    }
+    
+    public String detalleAsTexto(){
+        String aux;
+        aux="";
+        for(int i=0;i<this.detalles.size();i++)
+        {
+            aux=aux+detalles.get(i).toString();
+            
+        }
+        return aux;
     }
   
     public String astexto() {

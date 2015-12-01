@@ -26,7 +26,7 @@ public class AppClient {
     //private MensajeRS messageRS;
     private PrintWriter output;
     private BufferedReader input;
-    public static final String IPADDRESS = "192.68.0.2";
+    public static final String IPADDRESS = "127.0.0.1";
     public static final int PORT = 4001;
 
     public AppClient() {

@@ -99,6 +99,6 @@ public class Factura {
     }
   
     public String astexto() {
-        return id + "\t" + fecha + "\t" + total+ "\t" + identificacionCliente + "\t"+numeroDetalles;
+        return id + "a" + fecha + "a" + total+ "a" + identificacionCliente + "a"+numeroDetalles;
     }
 }
